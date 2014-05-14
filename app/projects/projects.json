@@ -1,0 +1,13 @@
+[
+	{
+		"id":"project1",
+		"name":"Projekt 1",
+		"description":"Projekt 1 är ett fint projekt."
+
+	},
+	{
+		"id":"project2",
+		"name":"Projekt 2",
+		"description":"Projekt 2 är ett fint projekt."
+	}
+]

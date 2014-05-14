@@ -2,16 +2,16 @@
 
 /* App Module */
 
-var phonecatApp = angular.module('phonecatApp', [
+var forskningsdataApp = angular.module('forskningsdataApp', [
   'ngRoute',
-  'phonecatAnimations',
+  'forskningsdataAnimations',
 
-  'phonecatControllers',
-  'phonecatFilters',
-  'phonecatServices'
+  'forskningsdataControllers',
+  'forskningsdataFilters',
+  'forskningsdataServices'
 ]);
 
-phonecatApp.config(['$routeProvider',
+forskningsdataApp.config(['$routeProvider',
   function($routeProvider) {
     // $routeProvider.
     //   when('/phones', {
@@ -25,8 +25,8 @@ phonecatApp.config(['$routeProvider',
     //   otherwise({
     //     redirectTo: '/phones'
     //   });
-      
-    $routeProider.
+
+    $routeProvider.
       when('/projects', {
         templateUrl: 'partials/project-list.html',
         controller: 'ProjectListCtrl'

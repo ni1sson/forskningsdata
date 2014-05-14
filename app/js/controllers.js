@@ -2,21 +2,21 @@
 
 /* Controllers */
 
-var phonecatControllers = angular.module('phonecatControllers', []);
+var forskningsdataControllers = angular.module('forskningsdataControllers', []);
 
-phonecatControllers.controller('PhoneListCtrl', ['$scope', 'Phone',
-  function($scope, Phone) {
-    $scope.phones = Phone.query();
-    $scope.orderProp = 'age';
+forskningsdataControllers.controller('ProjectListCtrl', ['$scope', 'Project',
+  function($scope, Project) {
+    $scope.projects = Project.query();
+    //$scope.orderProp = 'age';
   }]);
 
-phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Phone',
-  function($scope, $routeParams, Phone) {
-    $scope.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
-      $scope.mainImageUrl = phone.images[0];
+forskningsdataControllers.controller('ProjectDetailCtrl', ['$scope', '$routeParams', 'Project',
+  function($scope, $routeParams, Project) {
+    $scope.project = Project.get({projectId: $routeParams.projectId}, function(project) {
+      //$scope.mainImageUrl = project.images[0];
     });
 
-    $scope.setImage = function(imageUrl) {
+    /*$scope.setImage = function(imageUrl) {
       $scope.mainImageUrl = imageUrl;
-    }
+    }*/
   }]);
