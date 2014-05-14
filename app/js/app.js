@@ -35,6 +35,14 @@ forskningsdataApp.config(['$routeProvider',
         templateUrl: 'partials/project-detail.html',
         controller: 'ProjectDetailCtrl'
       }).
+      when('/units', {
+        templateUrl: 'partials/unit-list.html',
+        controller: 'UnitListCtrl'
+      }).
+      when('/units/:unitId',{
+        templateUrl: 'partials/unit-detail.html',
+        controller: 'UnitDetailCtrl'
+      }).
       otherwise({
         redirectTo: '/projects'
       });
