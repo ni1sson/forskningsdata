@@ -5,7 +5,7 @@
 var forskningsdataControllers = angular.module('forskningsdataControllers', []);
 
 forskningsdataControllers.controller('ProjectListCtrl', ['$scope', 'Project',
-  function($scope, Project, Unit) {
+  function($scope, Project) {
     $scope.projects = Project.query();
     //$scope.orderProp = 'age';
   }
@@ -59,3 +59,19 @@ forskningsdataControllers.controller('WeatherCtrl', ['$scope', 'Weather',
 
 
 
+  }]);
+
+
+forskningsdataControllers.controller('LoginController', function ($scope, $rootScope, AUTH_EVENTS, AuthService) {
+  $scope.credentials = {
+    username: '',
+    password: ''
+  };
+  $scope.login = function (credentials) {
+    AuthService.login(credentials).then(function () {
+      $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
+    }, function () {
+      $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
+    });
+  };
+})

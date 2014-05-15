@@ -42,7 +42,11 @@ forskningsdataApp.config(['$routeProvider',
         templateUrl: 'partials/unit-detail.html',
         controller: 'UnitDetailCtrl'
       }).
+      when('/login',{
+        templateUrl: 'partials/login.html',
+        controller: 'LoginController'
+      }).
       otherwise({
-        redirectTo: '/projects'
+        redirectTo: '/login'
       });
   }]);
