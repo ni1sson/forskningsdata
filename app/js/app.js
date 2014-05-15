@@ -10,8 +10,8 @@ var forskningsdataApp = angular.module('forskningsdataApp', [
   'forskningsdataServices'
 ]);
 
-forskningsdataApp.config(['$routeProvider',
-  function($routeProvider) {
+forskningsdataApp.config(['$routeProvider', '$locationProvider',
+  function($routeProvider, $locationProvider) {
     // $routeProvider.
     //   when('/phones', {
     //     templateUrl: 'partials/phone-list.html',
@@ -49,4 +49,6 @@ forskningsdataApp.config(['$routeProvider',
       otherwise({
         redirectTo: '/login'
       });
+
+      //$locationProvider.html5Mode(true);
   }]);

@@ -4,9 +4,11 @@
 
 var forskningsdataControllers = angular.module('forskningsdataControllers', []);
 
-forskningsdataControllers.controller('ProjectListCtrl', ['$scope', 'Project',
+forskningsdataControllers.controller('ProjectListCtrl', ['$scope', 'Project', '$rootScope',
   function($scope, Project) {
     $scope.projects = Project.query();
+    //var user.name = "asss";
+
     //$scope.orderProp = 'age';
   }
 ]);
@@ -62,16 +64,31 @@ forskningsdataControllers.controller('WeatherCtrl', ['$scope', 'Weather',
   }]);
 
 
-forskningsdataControllers.controller('LoginController', function ($scope, $rootScope, AUTH_EVENTS, AuthService) {
-  $scope.credentials = {
-    username: '',
-    password: ''
-  };
-  $scope.login = function (credentials) {
-    AuthService.login(credentials).then(function () {
-      $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
-    }, function () {
-      $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
-    });
-  };
-})
+forskningsdataControllers.controller('LoginController', function($scope, $location, $window, page) {
+    
+    page.setPage("Login","login-layout");
+    $scope.user = {};
+    $scope.loginUser=function()
+    {
+
+        var username=$scope.user.name;
+        var password=$scope.user.password;
+        if(username=="admin" && password=="admin123")
+        {
+            page.setUser($scope.user);
+            $location.path( "/projects");
+        }
+        else
+        {
+            $scope.message="Wrong credientials";
+            $scope.messagecolor="alert alert-danger";
+        }
+    }
+
+    $scope.logoutUser=function()
+    {
+      $scope.user.name = "";
+      page.setUser($scope.user);
+    }
+});
+
