@@ -45,7 +45,7 @@ forskningsdataApp.config(['$routeProvider', '$locationProvider',
       }).
       when('/login',{
         templateUrl: 'partials/login.html',
-        controller: 'LoginController'
+        controller: 'LoginCtrl'
       }).
       otherwise({
         redirectTo: '/login'

@@ -28,6 +28,10 @@ forskningsdataServices.factory('Weather', ['$resource',
 	}
 ]);
 
+forskningsdataServices.factory('SessionService', function($resource) {
+  return $resource('/api/sessions');
+});
+
 forskningsdataServices.factory("page", function($rootScope){
     var page={};
     var user={};

@@ -69,6 +69,19 @@ forskningsdataControllers.controller('WeatherCtrl', ['$scope', 'Weather',
 // ]);
 
 
+forskningsdataControllers.controller('LoginCtrl', function($scope, $rootScope, $location, SessionService) {
+  $scope.user = {username: '', password: ''};
+  
+  $scope.login = function() {
+    $scope.user = SessionService.save($scope.user, function(success) {
+      $rootScope.loggedIn = true;
+      $location.path('/');
+    }, function(error) {
+      $scope.loginError = true;
+    });
+  };
+});
+
 forskningsdataControllers.controller('LoginController', function($scope, $location, $http, $window, page) {
     
     page.setPage("Login","login-layout");
