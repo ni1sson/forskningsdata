@@ -64,16 +64,35 @@ forskningsdataControllers.controller('WeatherCtrl', ['$scope', 'Weather',
   }]);
 
 
-forskningsdataControllers.controller('LoginController', function($scope, $location, $window, page) {
+forskningsdataControllers.controller('LoginController', function($scope, $location, $http, $window, page) {
     
     page.setPage("Login","login-layout");
     $scope.user = {};
     $scope.loginUser=function()
     {
+        var user = {"username" : $scope.user.name, "password" : $scope.user.password}
+        //user.username=$scope.user.name;
+        //user.password=$scope.user.password;
+        //console.log(user)
 
-        var username=$scope.user.name;
-        var password=$scope.user.password;
-        if(username=="admin" && password=="admin123")
+        $http.post('http://localhost:8000/secret', user).success(function (data, status, headers, config) {//$scope.user).success(function (data) {
+              // Stores the token until the user closes the browser window.
+              //console.log(data, status, headers, config);
+              $window.sessionStorage.setItem('token', data.token);
+
+              page.setUser($scope.user);
+              //console.log(status);
+              $location.path('/projects');
+          })
+          .error(function (data, status, headers, config) {
+              //console.log(status);
+              $window.sessionStorage.removeItem('token');
+              $scope.message="Wrong credientials";
+              $scope.messagecolor="alert alert-danger";
+              // TODO: Show something like "Username or password invalid."
+          });
+      /*
+        if(username=="asdf" && password=="asdf")
         {
             page.setUser($scope.user);
             $location.path( "/projects");
@@ -83,12 +102,14 @@ forskningsdataControllers.controller('LoginController', function($scope, $locati
             $scope.message="Wrong credientials";
             $scope.messagecolor="alert alert-danger";
         }
+        */
     }
 
     $scope.logoutUser=function()
     {
       $scope.user.name = "";
       page.setUser($scope.user);
+      $location.path( "/");
     }
 });
 
