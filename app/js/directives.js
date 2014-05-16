@@ -29,7 +29,6 @@ forskningsdataDirectives.directive('ghDygraph', function(){
 	  //     {animatedZooms: true}          // options
 	  //   );
 	  // }
-   
 
     return {
 		restrict: 'E', // the directive can be invoked only by using <my-directive> tag in the template
@@ -38,7 +37,16 @@ forskningsdataDirectives.directive('ghDygraph', function(){
 		  grouped: '='
 		},
 		link: function (scope, element, attrs) {
-			new Dygraph(element[0],scope.val,{animatedZooms:true});
+			var g;
+			$(element[0]).append('<div id="graphdiv" style="width: 800px; height: 300px"></div>');
+			
+			scope.$watch('val', function (newVal, oldVal) {
+				if(!newVal){
+					return;
+				}
+				g = new Dygraph(document.getElementById("graphdiv"),newVal,{animatedZooms:true});
+				
+			});
 		  // initialization, done once per my-directive tag in template. If my-directive is within an
 		  // ng-repeat-ed template then it will be called every time ngRepeat creates a new copy of the template.
 

@@ -7,7 +7,8 @@ var forskningsdataApp = angular.module('forskningsdataApp', [
   'forskningsdataAnimations',
   'forskningsdataFilters',
   'forskningsdataControllers',
-  'forskningsdataServices'
+  'forskningsdataServices',
+  'forskningsdataDirectives'
 ]);
 
 forskningsdataApp.config(['$routeProvider', '$locationProvider',

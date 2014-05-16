@@ -22,7 +22,6 @@ forskningsdataServices.factory('Unit', ['$resource',
 
 forskningsdataServices.factory('Weather', ['$resource',
 	function($resource){
-
 		return $resource('http://opendata-download-metfcst.smhi.se/api/category/pmp1.5g/version/1/geopoint/lat/:lat/lon/:lon/data.json', {}, {
 			query: {method:'GET', params:{lat: 58.59, lon: 16.18}, isArray:false}
 		});
@@ -69,7 +68,12 @@ forskningsdataServices.factory('AuthInterceptor', function ($window, $q) {
     };
 });
 
-// Register the previously created AuthInterceptor.
-forskningsdataServices.config(function ($httpProvider) {
-    $httpProvider.interceptors.push('AuthInterceptor');
-});
+// // Register the previously created AuthInterceptor.
+// forskningsdataServices.config(function ($httpProvider) {
+//     $httpProvider.interceptors.push('AuthInterceptor');
+// });
+
+
+
+
+

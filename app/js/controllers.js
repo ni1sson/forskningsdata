@@ -49,10 +49,10 @@ forskningsdataControllers.controller('WeatherCtrl', ['$scope', 'Weather',
     console.log("Did query...");
     var weatherdata = Weather.query(function(){
       var data = [];
-      for (var i = weatherdata.timeseries.length - 1; i >= 0; i--) {
+      for (var i = 0; i < weatherdata.timeseries.length - 1; i++) {
         var date = new Date(weatherdata.timeseries[i].validTime);
         var temp = weatherdata.timeseries[i].t;
-        data.push([date.getTime(),temp]);
+        data.push([date,temp]);
       };
       $scope.data = data;
     });
