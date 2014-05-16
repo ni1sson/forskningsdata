@@ -1,7 +1,8 @@
 var express = require("express");
+var app = express();
+
 //var jwt = require('jwt-simple');
 //var path = require('path');
-var app = express();
 //var jwtauth = require('./jwtauth')
 
 var requireAuth = function(req, res, next) {
@@ -31,9 +32,6 @@ app.post('/secret', function(req, res){  //express.bodyParser(), jwtauth, requir
 	  res.send(200);
   }
 })
-
-
-
 
 var port = process.env.PORT || 8000;
 app.listen(port, function() {
