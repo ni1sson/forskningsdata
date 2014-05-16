@@ -1,8 +1,6 @@
 var express = require("express");
-var jwt = require('jwt-simple');
-var path = require('path');
+var bodyParser = require("body-parser")
 var app = express();
-var jwtauth = require('./jwtauth')
 
 var requireAuth = function(req, res, next) {
   if (!req.username) {
@@ -12,15 +10,15 @@ var requireAuth = function(req, res, next) {
   }
 }
 app.use(express.static(__dirname + '/'));
-app.use(express.json());
-app.use(express.urlencoded());
+app.use(bodyParser()); //application/json + application/www-urlencoded
+
 
 app.set('jwtTokenSecret', 'YOUR_SECRET_STRING');
 
 app.post('/secret', function(req, res){  //express.bodyParser(), jwtauth, requireAuth(), function(req, res){  
   if (req.body.username != "admin") {
     //	res.end('Not authorized', 401)
-	  console.log("NO");
+	  console.log(req.body);
 	  res.send(401);
   } else {
 	  console.log("YES");

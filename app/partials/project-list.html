@@ -35,6 +35,10 @@
       </ul>
     </div>
     <div class="weather" ng-controller="WeatherCtrl">
+      <!-- <gh-dygraph val="data"></gh-dygraph> -->
+      <!-- <div ng-controller="GraphCtrl">
+        
+      </div> -->
       <p ng-repeat="days in prognose.timeseries">{{days.validTime}}:{{days.t}}</p>
     </div>
   </div>

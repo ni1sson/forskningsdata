@@ -44,11 +44,21 @@ forskningsdataControllers.controller('UnitDetailCtrl', ['$scope', '$routeParams'
 
 forskningsdataControllers.controller('WeatherCtrl', ['$scope', 'Weather',
   function($scope, Weather) {
-    $scope.prognose = Weather.query();
+    //$scope.prognose = Weather.query();
     //$scope.orderProp = 'age';
+    console.log("Did query...");
+    var weatherdata = Weather.query(function(){
+      var data = [];
+      for (var i = weatherdata.timeseries.length - 1; i >= 0; i--) {
+        var date = new Date(weatherdata.timeseries[i].validTime);
+        var temp = weatherdata.timeseries[i].t;
+        data.push([date.getTime(),temp]);
+      };
+      $scope.data = data;
+    });
+    $scope.prognose = weatherdata;
   }
 ]);
-
 
 // forskningsdataControllers.controller('UnitListFilterCtrl', ['$scope', 'Unit', 'Project', '$filter',
 //   function($scope, Unit, Project, $filter) {
