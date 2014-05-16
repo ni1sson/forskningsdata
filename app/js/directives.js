@@ -38,7 +38,7 @@ forskningsdataDirectives.directive('ghDygraph', function(){
 		},
 		link: function (scope, element, attrs) {
 			var g;
-			$(element[0]).append('<div id="graphdiv" style="width: 800px; height: 300px"></div>');
+			$(document.body).append('<div id="graphdiv" style="width: 800px; height: 300px; display: block"></div>');
 			
 			scope.$watch('val', function (newVal, oldVal) {
 				if(!newVal){
