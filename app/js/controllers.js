@@ -75,13 +75,14 @@ forskningsdataControllers.controller('LoginCtrl', function($scope, $rootScope, $
   $scope.login = function() {
     $scope.user = SessionService.save($scope.user, function(success) {
       $rootScope.loggedIn = true;
-      $location.path('/');
+      $location.path('/projects');
     }, function(error) {
       $scope.loginError = true;
     });
   };
 });
 
+/*
 forskningsdataControllers.controller('LoginController', function($scope, $location, $http, $window, page) {
     
     page.setPage("Login","login-layout");
@@ -120,7 +121,7 @@ forskningsdataControllers.controller('LoginController', function($scope, $locati
             $scope.message="Wrong credientials";
             $scope.messagecolor="alert alert-danger";
         }
-        */
+        
     }
 
     $scope.logoutUser=function()
@@ -130,4 +131,6 @@ forskningsdataControllers.controller('LoginController', function($scope, $locati
       $location.path( "/");
     }
 });
+
+*/
 

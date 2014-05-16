@@ -33,6 +33,7 @@ forskningsdataServices.factory('SessionService', function($resource) {
   return $resource('/api/sessions');
 });
 
+/*
 forskningsdataServices.factory("page", function($rootScope){
     var page={};
     var user={};
@@ -77,3 +78,8 @@ forskningsdataServices.factory('AuthInterceptor', function ($window, $q) {
 forskningsdataServices.config(function ($httpProvider) {
     $httpProvider.interceptors.push('AuthInterceptor');
 });
+
+
+*/
+
+
