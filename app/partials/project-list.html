@@ -18,9 +18,21 @@
         <li ng-repeat="project in projects | filter:query | orderBy:orderProp"
             class="thumbnail phone-listing">
           <a href="#/projects/{{project.id}}">{{project.name}}</a>
+          
+
+          <!-- <p ng-repeat="unit in units">{{unit.name}}</p> -->
+          <div ng-controller="UnitListCtrl">
+            <p ng-repeat="unit in units"><a href="#/units/{{unit.id}}">{{unit.name | owned:project.id:unit.projectId}}</a></p>
+            <!-- <p >{{unit.name | owned:project.id:unit.projectId}}</p> -->
+          </div>
+
+
+          </ul>
         </li>
       </ul>
-
+    </div>
+    <div class="weather" ng-controller="WeatherCtrl">
+      <p ng-repeat="days in prognose.timeseries">{{days.validTime}}:{{days.t}}</p>
     </div>
   </div>
 </div>

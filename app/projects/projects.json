@@ -9,5 +9,10 @@
 		"id":"project2",
 		"name":"Projekt 2",
 		"description":"Projekt 2 är ett fint projekt."
+	},
+	{
+		"id":"project3",
+		"name":"Projekt 3",
+		"description":"Projekt 3 är ett fint projekt."
 	}
 ]

@@ -5,7 +5,7 @@
 var forskningsdataControllers = angular.module('forskningsdataControllers', []);
 
 forskningsdataControllers.controller('ProjectListCtrl', ['$scope', 'Project',
-  function($scope, Project) {
+  function($scope, Project, Unit) {
     $scope.projects = Project.query();
     //$scope.orderProp = 'age';
   }
@@ -39,6 +39,22 @@ forskningsdataControllers.controller('UnitDetailCtrl', ['$scope', '$routeParams'
     }*/
   }
 ]);
+
+forskningsdataControllers.controller('WeatherCtrl', ['$scope', 'Weather',
+  function($scope, Weather) {
+    $scope.prognose = Weather.query();
+    //$scope.orderProp = 'age';
+  }
+]);
+
+
+// forskningsdataControllers.controller('UnitListFilterCtrl', ['$scope', 'Unit', 'Project', '$filter',
+//   function($scope, Unit, Project, $filter) {
+//     var units = Unit.query();
+//     $scope.units = $filter('owned')(units,$scope.project.id);
+//     //$scope.orderProp = 'age';
+//   }
+// ]);
 
 
 

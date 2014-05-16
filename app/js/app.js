@@ -5,9 +5,8 @@
 var forskningsdataApp = angular.module('forskningsdataApp', [
   'ngRoute',
   'forskningsdataAnimations',
-
-  'forskningsdataControllers',
   'forskningsdataFilters',
+  'forskningsdataControllers',
   'forskningsdataServices'
 ]);
 

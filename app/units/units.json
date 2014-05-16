@@ -2,17 +2,20 @@
 	{
 		"id":"unit1",
 		"name":"BBB-asdo81",
-		"description":"Beaglebone black på företag 1"
+		"description":"Beaglebone black på företag 1",
+		"projectId":["project1","project2"]
 
 	},
 	{
 		"id":"unit2",
 		"name":"rPI-aoqm35",
-		"description":"Raspberry pi företag 2"
+		"description":"Raspberry pi företag 2",
+		"projectId":["project2"]
 	},
 	{
 		"id":"unit3",
 		"name":"CX5020-aoqm35",
-		"description":"Beckhoff PLC på företag 3"
+		"description":"Beckhoff PLC på företag 3",
+		"projectId":["project3"]
 	}
 ]
