@@ -32,6 +32,7 @@ forskningsdataServices.factory('SessionService', function($resource) {
   return $resource('/api/sessions');
 });
 
+/*
 forskningsdataServices.factory("page", function($rootScope){
     var page={};
     var user={};
@@ -72,6 +73,7 @@ forskningsdataServices.factory('AuthInterceptor', function ($window, $q) {
     };
 });
 
+<<<<<<< HEAD
 // // Register the previously created AuthInterceptor.
 // forskningsdataServices.config(function ($httpProvider) {
 //     $httpProvider.interceptors.push('AuthInterceptor');
@@ -79,5 +81,14 @@ forskningsdataServices.factory('AuthInterceptor', function ($window, $q) {
 
 
 
+=======
+// Register the previously created AuthInterceptor.
+forskningsdataServices.config(function ($httpProvider) {
+    $httpProvider.interceptors.push('AuthInterceptor');
+});
+
+
+*/
+>>>>>>> auth agains couchdb!!
 
 
