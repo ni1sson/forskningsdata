@@ -27,7 +27,6 @@ forskningsdataServices.factory('Weather', ['$resource',
 		});
 	}
 ]);
-  }]);
 
 forskningsdataServices.factory("page", function($rootScope){
     var page={};

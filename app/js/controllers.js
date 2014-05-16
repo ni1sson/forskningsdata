@@ -59,11 +59,6 @@ forskningsdataControllers.controller('WeatherCtrl', ['$scope', 'Weather',
 // ]);
 
 
-
-
-  }]);
-
-
 forskningsdataControllers.controller('LoginController', function($scope, $location, $http, $window, page) {
     
     page.setPage("Login","login-layout");
