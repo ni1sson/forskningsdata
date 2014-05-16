@@ -1,8 +1,8 @@
 var express = require("express");
-var jwt = require('jwt-simple');
-var path = require('path');
+//var jwt = require('jwt-simple');
+//var path = require('path');
 var app = express();
-var jwtauth = require('./jwtauth')
+//var jwtauth = require('./jwtauth')
 
 var requireAuth = function(req, res, next) {
   if (!req.username) {
@@ -11,6 +11,7 @@ var requireAuth = function(req, res, next) {
     next()
   }
 }
+
 app.use(express.static(__dirname + '/'));
 app.use(express.json());
 app.use(express.urlencoded());
